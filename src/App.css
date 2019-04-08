@@ -1,7 +1,12 @@
 .App {
   text-align: center;
 }
-
+.img{
+  height: 40px;
+}
+.curr{
+  color: #f0f;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -10,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
