@@ -19,12 +19,11 @@ class App extends Component {
 	  helpStr: ''
     }
   }
-  componentWillMount(a, b) {
-	console.log('willMount', a, b, this);
+  componentWillMount() { // Vue的Create
 	this.getData();
   }
-  componentDidMount(a, b) {
-	  console.log('didMount', a, b, this);
+  componentDidMount() { // Vue的mounted
+	  console.log('didMount', this);
   }
   getData() {
 	  server.sysHelp().then(res => {
