@@ -4,7 +4,7 @@ class Clock extends Component{
         super(props)
         this.state = {
             date: props.date,
-            showDate: ''
+            showDate: this.dateForm(props.date)
         };
         this.timer = '';
     }
