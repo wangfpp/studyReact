@@ -11,7 +11,7 @@ class Clock extends Component{
     dateForm(num) {
         let date = new Date(num);
         let [year, month, day, hours, min, sec] = [date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds()]
-        let result = `${year}-${this.doubleNum(month)}-${this.doubleNum(day)} ${this.doubleNum(hours)}:${this.doubleNum(min)}:${sec}`;
+        let result = `${year}-${this.doubleNum(month)}-${this.doubleNum(day)} ${this.doubleNum(hours)}:${this.doubleNum(min)}:${this.doubleNum(sec)}`;
         return result;
     }
     doubleNum(num) {
