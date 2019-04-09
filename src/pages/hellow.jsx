@@ -41,7 +41,7 @@ class Hellow extends Component {
         this.props.change(node);
     }
     render() {
-        return <div>
+        return <div className={this.props.className}>
             <span> Hellow { this.state.name } </span>
             <button ref="node" onClick={this.modifyName.bind(this)}>修改</button>
         </div>;
