@@ -71,7 +71,7 @@ class App extends Component {
         </header>
         <h3>我的名字是:{this.state.currUsr}</h3>
         
-		<div className="list" style={{margin:'10px 0'}}>
+		<div className="list" style={{margin:'10px 0', paddingTop: '10px'}}>
 			{this.state.userList.map((item, index) => {
 				if (index === 0) {
 					return <Hellow 
