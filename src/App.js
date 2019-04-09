@@ -11,16 +11,16 @@ class App extends Component {
 	  name: 'wangfpp',
 	  currUsr: 'wangfpp',
 	  userList: [
-		{name: 'sundy'},
-		{name: 'sunkw'},
-		{name: 'liuguangyuan'},
-		{name: 'wangfpp'}
+		{name: '', age: 30, height: 175},
+		{name: 'sunkw', age: 40, height: 175},
+		{name: 'liuguangyuan', age: 40, height: 175},
+		{name: 'wangfpp', age: 30, height: 175}
 	  ],
 	  helpStr: ''
     }
   }
   componentWillMount() { // Vue的Create
-	this.getData();
+		// this.getData();
   }
   componentDidMount() { // Vue的mounted
 	  console.log('didMount', this);
@@ -49,7 +49,8 @@ class App extends Component {
 		  })
 	}
   }
-  changeUsr(user) {
+  changeUsr(user, a) {
+	  console.log(user, a)
 	  this.setState({
 		  currUsr: user.name
 	  })
@@ -60,16 +61,28 @@ class App extends Component {
         <header className="App-header">
           <img className="img" src={logo} alt="logo"/>
         </header>
-        <h3>我的名字是:{this.state.name}</h3>
-        <Hellow ref="childCom" name={this.state.name} change={this.changeState.bind(this)}></Hellow>
+        <h3>我的名字是:{this.state.currUsr}</h3>
+        
 		{this.state.userList.map((item, index) => {
-			return index > 0 ? <li className={item.name === this.state.currUsr ? 'curr' : ''} 
-								key={index}
-								onClick={this.changeUsr.bind(this, item)}>
-						<span>{item.name}</span>
-					</li> : ''
+			if (index === 0) {
+				return <Hellow 
+							className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
+							ref="childCom" 
+							key={index}
+							height={item.height}
+							change={this.changeUsr.bind(this, item)}>
+						</Hellow>
+			} else {
+				return <Hellow 
+							className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
+							ref="childCom" 
+							key={index}
+							name={item.name}
+							height={item.height}
+							change={this.changeUsr.bind(this, item)}>
+						</Hellow>
+			}
 		})}
-		<div>{this.state.helpStr}</div>
 	  </div>
     );
   }

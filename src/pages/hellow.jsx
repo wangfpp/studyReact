@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom'
+import PropTypes from 'prop-types'
+// import { findDOMNode } from 'react-dom'
 class Hellow extends Component {
     constructor(props) {
         super(props)
@@ -9,9 +10,16 @@ class Hellow extends Component {
             age: 12
         }
     }
+    static defaultProps = {
+        name: 'ddkk1212'
+    }
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        height: PropTypes.number.isRequired
+    }
     componentDidMount() { // 挂载的生命周期
-        let node = findDOMNode(this);
-        console.log(node);
+        // let node = findDOMNode(this);
+        // console.log(node);
     }
     componentWillUpdate(nextProps, nextState){
         // this.state.name = nextProps.name;
