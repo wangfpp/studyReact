@@ -13,13 +13,13 @@ ReactDOM.render(
             <Nav></Nav>
            {
                routes.map((route, index) => {
-                   return ( 
-                            <Route key={index} 
-                            exact={route.exact ? true : false}
-                            path={route.path}
-                            render={props => 
-                                <route.component {...props} routes={route.routes} />
-                            }></Route>)
+                    return <Route key={index} 
+                    exact={route.exact ? true : false}
+                    path={route.path}
+                    render={props => 
+                        <route.component {...props} routes={route.routes} />
+                    }>
+                    </Route>
                })
            }
         </div>

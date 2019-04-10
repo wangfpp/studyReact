@@ -8,6 +8,7 @@ const userRoutes = [
         path: '/usermanage',
         exact: true,
         component: Usermanage,
+        redirect: '/usermanage/adduser',
         routes: [
             {
                 name: 'adduser',
@@ -17,7 +18,7 @@ const userRoutes = [
             },
             {
                 name: 'userlist',
-                path: '/userlist',
+                path: '/usermanage/userlist',
                 exact: false,
                 component: Userlist
             }
