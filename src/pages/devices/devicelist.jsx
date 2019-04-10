@@ -27,7 +27,7 @@ export default class Devicelist extends Component {
                 <h3>设备列表</h3>
                 <div>
                     {this.state.devicelist.map((device, index) => {
-                        return <ul>
+                        return <ul key={index}>
                             <li onClick={this.viewDetail.bind(this, device)}>
                                 <span>{device.name}</span>
                                 <span>{device.id}</span>

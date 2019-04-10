@@ -4,20 +4,20 @@ import DeviceDetail from '../pages/devices/devicesdetail'; // 设备详情
 const deviceRoutes = [
     {
         name: '设备管理',
-        exact: true,
+        exact: false,
         path: '/device',
         component: Device,
         routes: [
             {
                 name: '设备列表',
-                exact: true,
+                exact: false,
                 path: '/device/devicelist',
                 component: DeviceList
             },
             {
                 name: '设备详情',
-                exact: true,
-                path: '/devicedetail',
+                exact: false,
+                path: '/device/devicedetail',
                 component: DeviceDetail
             }
         ]
