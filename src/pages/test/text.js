@@ -76,7 +76,6 @@ class App extends Component {
 				if (index === 0) {
 					return <Hellow 
 								className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
-								ref="childCom" 
 								key={index}
 								height={item.height}
 								change={this.changeUsr.bind(this, item)}>
@@ -84,7 +83,6 @@ class App extends Component {
 				} else {
 					return <Hellow 
 								className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
-								ref="childCom" 
 								key={index}
 								name={item.name}
 								height={item.height}

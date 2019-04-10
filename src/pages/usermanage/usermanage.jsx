@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-export default class usermanage extends Component {
+import { connect } from 'react-redux'
+export default connect(state => {
+	console.log(state);
+	return {
+		username: state.username
+	}
+})(class usermanage extends Component {
     constructor(props) {
 			super(props)
 			this.state = {
@@ -8,6 +14,7 @@ export default class usermanage extends Component {
 		}
 	}
 	componentWillMount() {
+		console.log(this);
 		this.props.history.push({
 			pathname: '/usermanage/adduser'
 		})
@@ -33,4 +40,4 @@ export default class usermanage extends Component {
 			</Router>
 		</div>
 	}
-}
+})

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { stat } from 'fs';
 // import { findDOMNode } from 'react-dom'
 class Hellow extends Component {
     constructor(props) {
@@ -22,6 +24,7 @@ class Hellow extends Component {
     }
     componentWillUpdate(nextProps, nextState){
         // this.state.name = nextProps.name;
+        // console.log(this);
     }
     componentDidUpdate(prevProps,prevState) {
         // console.log(1, prevProps,prevState)
@@ -36,14 +39,18 @@ class Hellow extends Component {
         // console.log(this);
         // this.props.name = 'sundy'
         // this.setState({name: 'sundy'})
-        let node = this.refs.node;
-        this.props.change(node);
+        // let node = this.refs.node;
+        this.props.change();
     }
     render() {
         return <div className={this.props.className}>
             <span> Hellow { this.state.name } </span>
-            <button ref="node" onClick={this.modifyName.bind(this)}>修改</button>
+            <button onClick={this.modifyName.bind(this)}>修改</button>
         </div>;
     }
 };
-export default Hellow;
+export default connect(state => {
+    return {
+        todos: []
+    }
+})(Hellow);
