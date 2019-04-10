@@ -8,7 +8,8 @@ export default class Nav extends Component {
             navList: [
                 {name: '首页', to: '/home'},
                 {name: '用户管理', to: '/usermanage'},
-                {name: '测试', to: '/test'}
+                {name: '测试', to: '/test'},
+                {name: '设备管理', to: '/device'}
             ]
         }
     }

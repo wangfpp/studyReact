@@ -3,17 +3,3 @@
     height: 40px;
     line-height: 40px;
 }
-.navbar a{
-    display: inline-block;
-    height: 100%;
-    color: #000;
-    text-decoration: none;
-    width: auto;
-    padding: 0 10px;
-    margin: 0 10px;
-    background: transparent;
-}
-.navbar a.active, .navbar a:hover{
-    background: #2dabff;
-    color: #fff;
-}

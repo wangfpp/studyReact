@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 export default class usermanage extends Component {
     constructor(props) {
 			super(props)
@@ -13,10 +13,10 @@ export default class usermanage extends Component {
 	render() {
 		return <div id="usermanage">
 		<Router>
-			<div>
+			<div className="navbar">
 				{
 					this.props.routes.map((route, index) => {
-						return <Link key={index} to={route.path} >{route.name}</Link>
+						return <NavLink  key={index} to={route.path} >{route.name}</NavLink>
 					})
 				}
 			</div>

@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './index.css';
+import './static/css/comm.css';
 import routes from './route/index'; 
-// import App from './App';
-// import Home from './pages/home/home'; // 首页
-// import UserManage from './pages/usermanage/usermanage'; // 用户管理
-// import Test from './pages/test/text';
 import Nav from './components/nav/navlink';
 import * as serviceWorker from './serviceWorker';
 
@@ -16,12 +13,13 @@ ReactDOM.render(
             <Nav></Nav>
            {
                routes.map((route, index) => {
-                   return <Route key={index} 
+                   return ( 
+                            <Route key={index} 
                             exact={route.exact ? true : false}
                             path={route.path}
                             render={props => 
                                 <route.component {...props} routes={route.routes} />
-                            }></Route>
+                            }></Route>)
                })
            }
         </div>
