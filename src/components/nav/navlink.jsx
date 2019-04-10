@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './navlink.css';
 export default class Nav extends Component {
     constructor() {
         super()
@@ -13,9 +14,9 @@ export default class Nav extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="navbar">
                 {this.state.navList.map((item, index) => {
-                   return <NavLink to={item.to}>{item.name}</NavLink>
+                   return <NavLink to={item.to} key={index}>{item.name}</NavLink>
                 })}
             </div>
         )

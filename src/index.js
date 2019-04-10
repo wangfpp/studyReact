@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import Home from './pages/home/home'; // 首页
 import UserManage from './pages/usermanage/usermanage'; // 用户管理
 import Test from './pages/test/text';
