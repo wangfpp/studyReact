@@ -8,7 +8,10 @@ export default class Devices extends Component {
         }
     }
     componentWillMount() {
-
+        console.log(this.props);
+        this.props.history.push({
+            pathname: '/device/devicelist'
+        });
     }
     render() {
         return (

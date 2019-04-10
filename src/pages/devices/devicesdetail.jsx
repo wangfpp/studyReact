@@ -12,7 +12,8 @@ export default class Devicesdetail extends Component {
     render() {
         return (
             <div>
-                设备详情
+                <h3>设备详情</h3>
+                <span>设备id: {this.state.id}</span>
             </div>
         )
     }

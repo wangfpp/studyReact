@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import './index.css';
 import './static/css/comm.css';
 import routes from './route/index'; 
@@ -13,13 +13,28 @@ ReactDOM.render(
             <Nav></Nav>
            {
                routes.map((route, index) => {
-                    return <Route key={index} 
-                    exact={route.exact ? true : false}
-                    path={route.path}
-                    render={props => 
-                        <route.component {...props} routes={route.routes} />
-                    }>
+                   if(route.redirect) {
+                    return <Route 
+                        key={index} 
+                        exact={route.exact ? true : false}
+                        path={route.path}
+                        render={props => 
+                            <route.component {...props} routes={route.routes} />
+                        }>
+                        {/* <Redirect to={route.redirect}></Redirect> */}
                     </Route>
+                   } else {
+                        return <Route 
+                            key={index} 
+                            exact={index === 0 ? true : false}
+                            path={route.path}
+                            render={props => 
+                                <route.component {...props} routes={route.routes} />
+                            }>
+                        </Route>
+                        
+                   }
+                    
                })
            }
         </div>

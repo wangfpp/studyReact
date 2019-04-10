@@ -7,6 +7,7 @@ const deviceRoutes = [
         exact: false,
         path: '/device',
         component: Device,
+        redirect: '/device/devicelist',
         routes: [
             {
                 name: '设备列表',

@@ -8,7 +8,9 @@ export default class usermanage extends Component {
 		}
 	}
 	componentWillMount() {
-		console.log(this.props)
+		this.props.history.push({
+			pathname: '/usermanage/adduser'
+		})
 	}
 	render() {
 		return <div id="usermanage">

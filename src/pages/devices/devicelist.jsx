@@ -17,7 +17,7 @@ export default class Devicelist extends Component {
      */
     viewDetail(device) {
         this.props.history.push({
-            pathname: '/devicedetail',
+            pathname: '/device/devicedetail',
             id: device.id
         });
     }

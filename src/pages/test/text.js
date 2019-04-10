@@ -25,11 +25,11 @@ class App extends Component {
 		// this.getData();
   }
   componentDidMount() { // Vue的mounted
-	  console.log('didMount', this);
+	  // console.log('didMount', this);
   }
   getData() {
 	  server.sysHelp().then(res => {
-		  console.log(res);
+		  // console.log(res);
 		  this.setState({
 			  helpStr: res
 		  })
@@ -39,7 +39,7 @@ class App extends Component {
   }
   changeState(a) {
 	// console.log(a);
-	console.log(this.refs.childCom)
+	// console.log(this.refs.childCom)
     let name = this.state.name;
     if (name === 'wangfpp') {
 		this.setState({
