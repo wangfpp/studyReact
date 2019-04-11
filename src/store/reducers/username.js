@@ -1,11 +1,10 @@
 const currUse = (state = {username: 'wang'}, action) => {
     switch (action.type) {
         case 'CHANGE_USR':
-            console.log(state, action);
             return {
-                ...state,
-                username: state.username
+                username: action.username
             }
+            
         default:
             return state;
     }

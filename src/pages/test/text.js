@@ -4,13 +4,15 @@ import logo from '../../logo.svg'
 import Hellow from '../../pages/hellow';
 import Clock from '../../pages/clock/clock'; // 倒计时
 import { server } from '../../api/index';
+import { connect } from 'react-redux'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+		super(props)
+		console.log(this);
     this.state= {
 	  name: 'wangfpp',
-	  currUsr: 'wangfpp',
+	  currUsr: this.props.username,
 	  userList: [
 		{name: '', age: 30, height: 175},
 		{name: 'sunkw', age: 40, height: 175},
@@ -26,7 +28,7 @@ class App extends Component {
   }
   componentDidMount() { // Vue的mounted
 	  // console.log('didMount', this);
-  }
+	}
   getData() {
 	  server.sysHelp().then(res => {
 		  // console.log(res);
@@ -40,6 +42,7 @@ class App extends Component {
   changeState(a) {
 	// console.log(a);
 	// console.log(this.refs.childCom)
+		
     let name = this.state.name;
     if (name === 'wangfpp') {
 		this.setState({
@@ -52,10 +55,13 @@ class App extends Component {
 	}
   }
   changeUsr(user, a) {
-	  console.log(user, a)
+		this.props.dispatch({
+			type: 'CHANGE_USR',
+			username: user.name
+		})
 	  this.setState({
 		  currUsr: user.name
-	  })
+		})
   }
   changeDate(date) {
 	// console.log(date);
@@ -69,7 +75,7 @@ class App extends Component {
         <header className="App-header">
           <img className="img" src={logo} alt="logo"/>
         </header>
-        <h3>我的名字是:{this.state.currUsr}</h3>
+        <h3>我的名字是:{this.props.username}</h3>
         
 		<div className="list" style={{margin:'10px 0', paddingTop: '10px'}}>
 			{this.state.userList.map((item, index) => {
@@ -101,4 +107,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(state => {
+	return {
+		username: state.currUse.username
+	}
+})(App);

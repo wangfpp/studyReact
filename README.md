@@ -58,3 +58,6 @@
         <Route path="/usermanage" component={UserManage}></Route>
         <Route path="/test" component={Test}></Route>
     ```
+- Redux Fuck
+    - Actions
+    - Reducer

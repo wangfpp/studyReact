@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
 export default connect(state => {
-	console.log(state);
 	return {
-		username: state.username
+		user: state.currUse.username
 	}
 })(class usermanage extends Component {
     constructor(props) {
@@ -19,8 +18,20 @@ export default connect(state => {
 			pathname: '/usermanage/adduser'
 		})
 	}
+	changename() {
+		this.props.dispatch({
+			type: 'CHANGE_USR',
+			username: 'aaa'
+		});
+		this.props.dispatch({
+			type: 'ADD_TODO',
+			id: 'sdk',
+			text: 'redux fuck'
+		})
+		console.log(this);
+	}
 	render() {
-		return <div id="usermanage">
+		return <div id="usermanage" onClick={this.changename.bind(this)}>
 		<Router>
 			<div className="navbar">
 				{

@@ -23,6 +23,5 @@ export const VisibilityFilters = {
 
 export const changeUsr = username => ({
   type: 'CHANGE_USR',
-  id
 })
 

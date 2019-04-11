@@ -9,9 +9,11 @@ import './static/css/comm.css';
 import routes from './route/index'; 
 import Nav from './components/nav/navlink';
 import * as serviceWorker from './serviceWorker';
-console.log(rootReducer)
 const store = createStore(rootReducer)
-// console.log(store)
+store.subscribe(() => {
+    let state = store.getState();   //这就是你获取到的数据state tree，由于使用了subscribe，当数据更改时会重新获取
+    console.log(state);
+});
 ReactDOM.render(
     <Provider store={store}>
         <Router>
