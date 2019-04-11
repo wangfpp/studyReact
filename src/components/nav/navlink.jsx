@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux'
 import './navlink.css';
-export default class Nav extends Component {
+export default connect(state => {
+    return {
+        username: state.currUse.username
+    }
+})(class Nav extends Component {
     constructor() {
         super()
         this.state = {
@@ -15,11 +20,16 @@ export default class Nav extends Component {
     }
     render() {
         return (
-            <div className="navbar">
-                {this.state.navList.map((item, index) => {
-                   return <NavLink to={item.to} key={index}>{item.name}</NavLink>
-                })}
+            <div id="nav">
+                <div className="navbar">
+                    {this.state.navList.map((item, index) => {
+                    return <NavLink to={item.to} key={index}>{item.name}</NavLink>
+                    })}
+                </div>
+                <div className="username">
+                    您好:{this.props.username ? this.props.username : '暂无用户名'}
+                </div>
             </div>
         )
     }
-}
+})
