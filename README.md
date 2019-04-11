@@ -65,7 +65,8 @@
         - 改变store时出发的type的具体事件
     - connect 链接组建 state可以直接获取Store的数据
     - Provider 提供Store给当前应用 
+    - 持久化缓存 redux-persist[NPM](https://www.npmjs.com/package/redux-persist)
 
 ## React学习告一段落 
 
-:smirk:
+:smirk: :disappointed: :pensive: :unamused: :expressionless: :confused:
