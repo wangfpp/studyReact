@@ -59,9 +59,9 @@ class App extends Component {
 			type: 'CHANGE_USR',
 			username: user.name
 		})
-	  this.setState({
-		  currUsr: user.name
-		})
+	//   this.setState({
+	// 	  currUsr: user.name
+	// 	})
   }
   changeDate(date) {
 	// this.setState({
@@ -84,14 +84,14 @@ class App extends Component {
 			{this.state.userList.map((item, index) => {
 				if (index === 0) {
 					return <Hellow 
-								className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
+								className={`node ${item.name === this.props.username ? 'curr': ''}`} 
 								key={index}
 								height={item.height}
 								change={this.changeUsr.bind(this, item)}>
 							</Hellow>
 				} else {
 					return <Hellow 
-								className={`node ${item.name === this.state.currUsr ? 'curr': ''}`} 
+								className={`node ${item.name === this.props.username ? 'curr': ''}`} 
 								key={index}
 								name={item.name}
 								height={item.height}
