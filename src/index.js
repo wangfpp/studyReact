@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import { Provider } from 'react-redux'
 import rootReducer from './store/reducers/index'
 import { createStore } from 'redux'
@@ -17,32 +17,37 @@ ReactDOM.render(
         <Router>
             <div>
                 <Nav></Nav>
-            {
-                routes.map((route, index) => {
-                    if(route.redirect) {
-                        return <Route 
-                            key={index} 
-                            exact={route.exact ? true : false}
-                            path={route.path}
-                            render={props => 
-                                <route.component {...props} routes={route.routes} />
-                            }>
-                            {/* <Redirect to={route.redirect}></Redirect> */}
-                        </Route>
-                    } else {
-                            return <Route 
-                                key={index} 
-                                exact={index === 0 ? true : false}
-                                path={route.path}
-                                render={props => 
-                                    <route.component {...props} routes={route.routes} />
-                                }>
-                            </Route>
-                            
+                <Switch>
+                    {
+                        routes.map((route, index) => {
+                            if(route.redirect) {
+                                return (<Route 
+                                    key={index} 
+                                    exact={route.exact ? true : false}
+                                    path={route.path}
+                                    render={props => 
+                                        <route.component {...props} routes={route.routes} />
+                                    }>
+                                    {/* <Redirect to={route.redirect}></Redirect> */}
+                                </Route>)
+                            } else {
+                                    return <Route 
+                                        key={index} 
+                                        exact={index === 0 ? true : false}
+                                        path={route.path}
+                                        render={props => 
+                                            <route.component {...props} routes={route.routes} />
+                                        }>
+                                    </Route>
+                                    
+                            }
+                                
+                        })
                     }
-                        
-                })
-            }
+                    <Redirect path="/" to={{pathname: '/home'}} />
+                </Switch>
+            
+            
             </div>
         </Router>
     </Provider>

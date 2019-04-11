@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { stat } from 'fs';
 // import { findDOMNode } from 'react-dom'
 class Hellow extends Component {
     constructor(props) {
