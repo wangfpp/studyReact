@@ -25,3 +25,8 @@ export const changeUsr = username => ({
   type: 'CHANGE_USR',
 })
 
+export const changetime = time => {
+  type: 'CHANGE_TIME',
+  time
+}
+

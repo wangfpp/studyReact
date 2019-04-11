@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import commjs from '../../comm/comm';   
 import './navlink.css';
 export default connect(state => {
     return {
+        time: state.time,
         username: state.currUse.username
     }
 })(class Nav extends Component {
@@ -28,6 +30,8 @@ export default connect(state => {
                 </div>
                 <div className="username">
                     您好:{this.props.username ? this.props.username : '暂无用户名'}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    {commjs.dateForm(this.props.time)}
                 </div>
             </div>
         )

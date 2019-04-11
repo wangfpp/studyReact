@@ -1,4 +1,4 @@
-const currUse = (state = {username: 'wang'}, action) => {
+const currUse = (state = {username: 'wangfpp'}, action) => {
     switch (action.type) {
         case 'CHANGE_USR':
             return {

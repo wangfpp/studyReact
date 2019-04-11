@@ -20,7 +20,7 @@ class App extends Component {
 		{name: 'wangfpp', age: 30, height: 175}
 	  ],
 	  helpStr: '',
-	  date: new Date().getTime()
+	  date: this.props.time
     }
   }
   componentWillMount() { // Vue的Create
@@ -64,10 +64,13 @@ class App extends Component {
 		})
   }
   changeDate(date) {
-	// console.log(date);
-	this.setState({
-		date: date
-	})
+	// this.setState({
+	// 	date: date
+	// })
+	this.props.dispatch({
+		type: 'CHANGE_TIME',
+		num: date
+	});
   }
   render() { // Render UI
     return (
@@ -75,7 +78,7 @@ class App extends Component {
         <header className="App-header">
           <img className="img" src={logo} alt="logo"/>
         </header>
-        <h3>我的名字是:{this.props.username}</h3>
+        <h3>我的名字是:{this.props.username ? this.props.username : '暂无用户名'}</h3>
         
 		<div className="list" style={{margin:'10px 0', paddingTop: '10px'}}>
 			{this.state.userList.map((item, index) => {
@@ -109,6 +112,7 @@ class App extends Component {
 
 export default connect(state => {
 	return {
+		time: state.time,
 		username: state.currUse.username
 	}
 })(App);
