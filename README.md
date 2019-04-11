@@ -60,4 +60,8 @@
     ```
 - Redux Fuck
     - Actions
+        - type 类型
     - Reducer
+        - 改变store时出发的type的具体事件
+    - connect 链接组建 state可以直接获取Store的数据
+    - Provider 提供Store给当前应用 
