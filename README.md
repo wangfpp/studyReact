@@ -1,10 +1,10 @@
 ## 个人学习项目
-- React组建传值
+- React组件传值
     - props state
     - 子组件的数据验证和默认数据
         ``` javascript  
         import PropTypes from 'prop-types' 
-            static defaultProps = {
+        static defaultProps = {
             name: 'ddkk1212'
         }
         static propTypes = {
@@ -29,6 +29,7 @@
     - componentWillUnmount
     - componentDidMount 
     - componentWillUpdate
+    - ![图解](https://user-gold-cdn.xitu.io/2017/11/11/88e11709488aeea3f9c6595ee4083bf3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 - 渲染
     - React的页面渲染全部为js写法 没有什么特殊的API(除了渲染带标签的HTML) 
     - 绑定key={index} 
